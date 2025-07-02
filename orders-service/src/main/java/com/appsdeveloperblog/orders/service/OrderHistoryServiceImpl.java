@@ -11,6 +11,7 @@ import java.sql.Timestamp;
 import java.util.Date;
 import java.util.List;
 import java.util.UUID;
+import java.util.stream.Collectors;
 
 @Service
 public class OrderHistoryServiceImpl implements OrderHistoryService {
@@ -36,6 +37,6 @@ public class OrderHistoryServiceImpl implements OrderHistoryService {
             OrderHistory orderHistory = new OrderHistory();
             BeanUtils.copyProperties(entity, orderHistory);
             return orderHistory;
-        }).toList();
+        }).collect(Collectors.toList());
     }
 }
